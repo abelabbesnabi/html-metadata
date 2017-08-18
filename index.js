@@ -28,7 +28,7 @@ var index = require('./lib/index.js');
 exports = module.exports = function(urlOrOpts, callback) {
 	return preq.get(urlOrOpts
 	).then(function(response) {
-		return index.parseAll(cheerio.load(response.body));
+		return index.parseAll(cheerio.load(response.body), response.body);
 	}).nodeify(callback);
 };
 
